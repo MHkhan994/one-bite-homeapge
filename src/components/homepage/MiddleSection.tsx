@@ -35,7 +35,7 @@ const MiddleSection = () => {
       <svg
         className="absolute left-0 top-0 z-0"
         width="905"
-        height="1390"
+        height="800"
         viewBox="0 0 905 1390"
         fill="none"
         xmlns="http://www.w3.org/2000/svg"
@@ -75,7 +75,7 @@ const MiddleSection = () => {
       <svg
         className="absolute right-0 bottom-0 z-0"
         width="831"
-        height="1334"
+        height="874"
         viewBox="0 0 831 1334"
         fill="none"
         xmlns="http://www.w3.org/2000/svg"
@@ -156,7 +156,7 @@ const MiddleSection = () => {
             </span>
             , <br /> বিশুদ্ধতায় প্রতিদিন
           </h1>
-          <ul className="list-disc ps-4 text-green text-sm leading-6 hind-siliguri-semibold xl:pr-10">
+          <ul className="list-disc ps-4 space-y-1 text-green text-sm leading-6 hind-siliguri-semibold xl:pr-10">
             <li>
               One Heart-এ আমরা বিশ্বাস করি, প্রকৃতির কাছে ফেরাটাই স্বাস্থ্যকর
               জীবনের প্রথম ধাপ।

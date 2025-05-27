@@ -239,7 +239,13 @@ export default function CarosolSection() {
   const visibleCards = getVisibleCards();
 
   return (
-    <div className="md:h-[500px] h-[400px] relative overflow-hidden flex items-center justify-center p-4 sm:p-8">
+    <div
+      style={{
+        backgroundImage: `url(/slider/slider-bg.png)`,
+        backgroundSize: "cover",
+      }}
+      className="md:h-[500px] h-[400px] relative overflow-hidden flex items-center justify-center p-4 sm:p-8"
+    >
       <svg
         className="absolute top-0 left-0"
         width="556"

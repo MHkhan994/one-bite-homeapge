@@ -15,6 +15,7 @@ const Newsletter = () => {
           style={{
             backgroundImage: "url(/slider/newletter-shape.png)",
             backgroundSize: "cover",
+            backgroundPosition: "left",
           }}
           className="bg-[#148800] min-h-[252px] flex items-center rounded-2xl lg:p-8 md:p-6 p-4 relative overflow-hidden shadow-lg"
         >

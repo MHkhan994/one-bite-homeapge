@@ -17,7 +17,7 @@ const Banner = () => {
       />
       <div className="my-container lg:flex items-center h-full relative z-10">
         <div className="lg:w-[60%] lg:space-y-6 md:space-y-4 space-y-3 text-center lg:text-start">
-          <div className="text-dark lg:text-[50px] md:text-[36px] text-2xl hind-siliguri-bold font-black">
+          <div className="text-dark lg:leading-20 md:leading-16 lg:text-[50px] md:text-[36px] text-2xl hind-siliguri-bold font-black">
             <h2 className="inline">
               <p className="inline relative text-primary">
                 OneBite

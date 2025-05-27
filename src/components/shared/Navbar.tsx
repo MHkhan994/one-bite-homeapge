@@ -13,8 +13,8 @@ import {
 
 const Navbar = () => {
   return (
-    <div className="bg-secondary lg:h-[80px] md:h-[60px] h-[40px] w-full">
-      <div className="my-container flex justify-between items-center h-full">
+    <div className="bg-secondary w-full">
+      <div className="my-container border-b border-[#0000001A] py-2 flex justify-between items-center lg:h-[80px] md:h-[60px] h-[40px]">
         <Image
           src={"/logo.png"}
           className="w-[110px] md:w-[130px] lg:w-[160px] "

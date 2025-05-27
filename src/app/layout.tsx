@@ -25,7 +25,7 @@ export default function RootLayout({
       <body
         className={`${beVietnam.variable} ${plusJakarta.variable} antialiased bg-background`}
       >
-        <div className="max-w-[1440px] mx-auto">
+        <div className="max-w-[1920px] mx-auto">
           <Navbar />
           {children}
           <Footer />
