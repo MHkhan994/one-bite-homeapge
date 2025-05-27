@@ -1,10 +1,11 @@
 import Image from "next/image";
 import React from "react";
 import OrderButton from "../common/OrderButton";
+import { CircleCheckBig } from "lucide-react";
 
 const MiddleSection = () => {
   return (
-    <section className="relative flex overflow-hidden">
+    <section className="relative overflow-hidden">
       <svg
         className="absolute left-0 top-0 z-0"
         width="905"
@@ -46,6 +47,45 @@ const MiddleSection = () => {
       </svg>
 
       <svg
+        className="absolute right-0 bottom-0 z-0"
+        width="831"
+        height="1334"
+        viewBox="0 0 831 1334"
+        fill="none"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <g filter="url(#filter0_f_91_707)">
+          <path
+            d="M538.748 558.144C518.482 519.403 489.642 430 450.218 430C417.227 430 422.797 564.769 480.395 676.523C613.779 894.004 711.794 904 800.323 904C888.853 904 927 841.252 927 802.511C927 763.771 900.335 708.638 756.34 708.638C612.346 708.638 559.014 596.885 538.748 558.144Z"
+            fill="#00BD1E"
+          />
+        </g>
+        <defs>
+          <filter
+            id="filter0_f_91_707"
+            x="0"
+            y="0"
+            width="1357"
+            height="1334"
+            filterUnits="userSpaceOnUse"
+            color-interpolation-filters="sRGB"
+          >
+            <feFlood flood-opacity="0" result="BackgroundImageFix" />
+            <feBlend
+              mode="normal"
+              in="SourceGraphic"
+              in2="BackgroundImageFix"
+              result="shape"
+            />
+            <feGaussianBlur
+              stdDeviation="215"
+              result="effect1_foregroundBlur_91_707"
+            />
+          </filter>
+        </defs>
+      </svg>
+
+      <svg
         className="absolute top-8 -left-10"
         width="146"
         height="240"
@@ -62,19 +102,19 @@ const MiddleSection = () => {
         />
       </svg>
 
-      <div className="my-container py-20 xl:flex gap-7 relative z-10">
+      <div className="my-container py-20 flex xl:flex-row flex-col-reverse gap-7 relative z-10">
         <div className="relative w-full max-w-[560px] mx-auto xl:mx-0">
-          <div className="bg-[#078B00] bottom-4 -rotate-[10deg] h-[255px] w-[315px] rounded-[60px] absolute"></div>
-          <div className="ps-14 mb-16">
+          <div className="bg-[#078B00] sm:left-0 left-4 xl:-bottom-0 -bottom-6 -rotate-[10deg] h-[160px] w-[245px] md:h-[255px] md:w-[315px] md:rounded-[60px] rounded-4xl absolute"></div>
+          <div className="ps-14 mb-16 sm:block justify-center w-full">
             <Image
-              className="z-10 relative h-[315px] w-[402px]"
+              className="z-10 relative md:w-[402px] sm:w-[350px] min-[480px]:w-[300px] w-[250px]"
               src={"/banner/section-1.png"}
               height={315}
               width={402}
               alt="secton-1"
             />
             <Image
-              className="z-10 absolute top-[40%] left-[40%] rounded-[36px] h-[235px] w-[313px]"
+              className="z-10 absolute top-[40%] md:left-[40%] left-1/2 rounded-2xl sm:rounded-[36px] sm:w-[250px] min-[480px]:w-[200px] w-[150px] md:w-[313px]"
               src={"/banner/section-1-extra.png"}
               height={235}
               width={313}
@@ -83,10 +123,12 @@ const MiddleSection = () => {
           </div>
         </div>
 
-        <div className="text-dark space-y-3 xl:pr-16 w-full">
-          <h1 className="text-[42px] hind-siliguri-bold">
-            <span className="text-[45px]">OneBite Premium</span>, <br />{" "}
-            বিশুদ্ধতায় প্রতিদিন
+        <div className="text-dark space-y-3 xl:pr-16 w-full xl:pt-0 lg:pt-10 pt-6">
+          <h1 className="lg:text-[42px] md:text-4xl text-2xl hind-siliguri-bold leading-10 xl:leading-16">
+            <span className="lg:text-[45px] md:text-4xl text-2xl">
+              OneBite Premium
+            </span>
+            , <br /> বিশুদ্ধতায় প্রতিদিন
           </h1>
           <ul className="list-disc text-green text-sm leading-6 hind-siliguri-semibold xl:pr-10">
             <li>
@@ -103,6 +145,57 @@ const MiddleSection = () => {
             আধুনিকতার এক মেলবন্ধন.
           </h4>
           <OrderButton />
+        </div>
+      </div>
+
+      <div className="my-container pb-20 grid xl:grid-cols-2 gap-6 items-center relative z-10">
+        <div className="space-y-3">
+          <h1 className="lg:text-[42px] md:text-4xl text-2xl hind-siliguri-bold text-dark leading-10 xl:leading-16">
+            <span className="lg:text-[45px] md:text-4xl text-2xl">
+              OneBite Premium
+            </span>
+            , আপনার রান্নাঘরের নির্ভরতার সংগী
+          </h1>
+          <ul className="list-outside text-sm hind-siliguri-semibold text-gray space-y-3">
+            <li className="flex gap-2 items-center">
+              <CircleCheckBig size={15} />
+              ১০০% বিশুদ্ধ ও প্রাকৃতিক সরিষার তেল
+            </li>
+            <li className="flex gap-2 items-center">
+              {" "}
+              <CircleCheckBig size={15} />
+              হৃদরোগের ঝুঁকি কমাতে সহায়ক
+            </li>
+            <li className="flex gap-2 items-center">
+              {" "}
+              <CircleCheckBig size={15} />
+              শক্তিশালী অ্যান্টিঅক্সিডেন্ট
+            </li>
+            <li className="flex gap-2 items-center">
+              {" "}
+              <CircleCheckBig size={15} />
+              রাঁধুন ঘরের ঐতিহ্য মেনে
+            </li>
+            <li className="flex gap-2 items-center">
+              {" "}
+              <CircleCheckBig size={15} />
+              প্রতিটি ফোঁটায় দেশি ঘ্রাণ ও স্বাদ
+            </li>
+          </ul>
+          <h4 className="hind-siliguri-medium text-gray text-base md:leading-6 lg:leading-7">
+            OneBite একটি মূল্যসাশ্রয়ী প্রিমিয়াম সরিষার তেল, যা খরচ অনুযায়ী
+            যথাযথ মূল্য নিশ্চিত করে। খাঁটি সরিষার তেলের সুঘ্রান
+          </h4>
+          <OrderButton />
+        </div>
+        <div className="flex justify-center">
+          <Image
+            className="z-10 rounded-2xl w-full object-cover max-w-[600px]"
+            src={"/banner/section-2-extra.png"}
+            height={532}
+            width={556}
+            alt="secton-1"
+          />
         </div>
       </div>
     </section>
