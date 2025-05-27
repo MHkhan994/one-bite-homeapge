@@ -17,7 +17,7 @@ const Navbar = () => {
       <div className="my-container flex justify-between items-center h-full">
         <Image
           src={"/logo.png"}
-          className="w-[80px] md:w-[100px] lg:w-[160px] "
+          className="w-[110px] md:w-[130px] lg:w-[160px] "
           height={60}
           width={160}
           alt="logo"
