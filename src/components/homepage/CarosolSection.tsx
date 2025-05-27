@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { motion, AnimatePresence, type PanInfo } from "framer-motion";
 import { ChevronLeft, ChevronRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
@@ -41,6 +41,21 @@ const products = [
 
 export default function CarosolSection() {
   const [currentIndex, setCurrentIndex] = useState(0);
+  const [isMounted, setIsMounted] = useState(false);
+  const [isMobile, setIsMobile] = useState(false);
+
+  useEffect(() => {
+    setIsMounted(true);
+
+    const checkMobile = () => {
+      setIsMobile(window.innerWidth < 640);
+    };
+
+    checkMobile();
+    window.addEventListener("resize", checkMobile);
+
+    return () => window.removeEventListener("resize", checkMobile);
+  }, []);
 
   const handleDragEnd = (event: any, info: PanInfo) => {
     const threshold = 50;
@@ -123,6 +138,104 @@ export default function CarosolSection() {
     }
   };
 
+  // Don't render the interactive parts until mounted on client
+  if (!isMounted) {
+    return (
+      <div className="md:h-[500px] h-[400px] relative overflow-hidden flex items-center justify-center p-4 sm:p-8">
+        {/* Static background SVGs */}
+        <svg
+          className="absolute top-0 left-0"
+          width="556"
+          height="890"
+          viewBox="0 0 856 1390"
+          fill="none"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <g filter="url(#filter0_f_91_910)">
+            <path
+              d="M-53.651 573.283C-78.6878 529.965 -114.318 430 -163.022 430C-203.78 430 -196.898 580.691 -125.741 705.648C39.0433 948.823 160.132 960 269.502 960C378.872 960 426 889.839 426 846.521C426 803.203 393.058 741.558 215.164 741.558C37.2727 741.558 -28.6143 616.601 -53.651 573.283Z"
+              fill="#FF4A00"
+              fillOpacity="0.6"
+            />
+          </g>
+          <defs>
+            <filter
+              id="filter0_f_91_910"
+              x="-618"
+              y="0"
+              width="1474"
+              height="1390"
+              filterUnits="userSpaceOnUse"
+              colorInterpolationFilters="sRGB"
+            >
+              <feFlood floodOpacity="0" result="BackgroundImageFix" />
+              <feBlend
+                mode="normal"
+                in="SourceGraphic"
+                in2="BackgroundImageFix"
+                result="shape"
+              />
+              <feGaussianBlur
+                stdDeviation="215"
+                result="effect1_foregroundBlur_91_910"
+              />
+            </filter>
+          </defs>
+        </svg>
+        <svg
+          className="absolute right-0 top-0"
+          width="145"
+          height="182"
+          viewBox="0 0 145 182"
+          fill="none"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            d="M17.5864 118.054C35.8579 196.387 154.446 186.93 158.781 123.592C163.198 58.8844 99.5073 60.7095 92.207 92.669"
+            stroke="#078B00"
+            strokeOpacity="0.1"
+            strokeWidth="16"
+            strokeMiterlimit="10"
+            strokeLinecap="round"
+          />
+          <path
+            d="M111.351 131.742C94.0331 143.585 34.4901 128.963 57.7183 63.9243C78.7896 4.92054 152.249 29.3516 154.758 30.3679"
+            stroke="#FF5F21"
+            strokeOpacity="0.1"
+            strokeWidth="16"
+            strokeMiterlimit="10"
+            strokeLinecap="round"
+          />
+          <path
+            d="M1.14027 79.8307C1.14027 79.8307 -4.41788 25.4103 54.4407 1"
+            stroke="#343A40"
+            strokeOpacity="0.2"
+            strokeWidth="2"
+            strokeMiterlimit="10"
+            strokeLinecap="round"
+          />
+          <path
+            d="M32.9337 36.5047C32.9337 36.5047 13.2312 68.4435 23.518 84.2884C33.784 100.133 60.7661 53.8844 59.0447 37.1891C57.3233 20.4938 42.7642 22.63 32.9337 36.5047Z"
+            fill="#FFC107"
+            fillOpacity="0.2"
+          />
+          <path
+            d="M97.3265 165.625C108.837 164.471 117.619 158.056 116.941 151.298C116.263 144.54 106.382 139.997 94.8717 141.151C83.3609 142.306 74.5791 148.721 75.2569 155.479C75.9348 162.237 85.8157 166.78 97.3265 165.625Z"
+            fill="#FFC107"
+            fillOpacity="0.2"
+          />
+        </svg>
+
+        {/* Loading placeholder */}
+        <div className="relative w-full max-w-sm sm:max-w-4xl h-64 sm:h-96 flex items-center justify-center">
+          <div className="relative w-48 h-56 sm:w-80 sm:h-96">
+            <div className="absolute inset-0 w-full h-full rounded-3xl bg-gradient-to-br from-amber-400 to-orange-500 shadow-xl animate-pulse" />
+          </div>
+        </div>
+      </div>
+    );
+  }
+
   const visibleCards = getVisibleCards();
 
   return (
@@ -139,7 +252,7 @@ export default function CarosolSection() {
           <path
             d="M-53.651 573.283C-78.6878 529.965 -114.318 430 -163.022 430C-203.78 430 -196.898 580.691 -125.741 705.648C39.0433 948.823 160.132 960 269.502 960C378.872 960 426 889.839 426 846.521C426 803.203 393.058 741.558 215.164 741.558C37.2727 741.558 -28.6143 616.601 -53.651 573.283Z"
             fill="#FF4A00"
-            fill-opacity="0.6"
+            fillOpacity="0.6"
           />
         </g>
         <defs>
@@ -150,9 +263,9 @@ export default function CarosolSection() {
             width="1474"
             height="1390"
             filterUnits="userSpaceOnUse"
-            color-interpolation-filters="sRGB"
+            colorInterpolationFilters="sRGB"
           >
-            <feFlood flood-opacity="0" result="BackgroundImageFix" />
+            <feFlood floodOpacity="0" result="BackgroundImageFix" />
             <feBlend
               mode="normal"
               in="SourceGraphic"
@@ -177,36 +290,36 @@ export default function CarosolSection() {
         <path
           d="M17.5864 118.054C35.8579 196.387 154.446 186.93 158.781 123.592C163.198 58.8844 99.5073 60.7095 92.207 92.669"
           stroke="#078B00"
-          stroke-opacity="0.1"
-          stroke-width="16"
-          stroke-miterlimit="10"
-          stroke-linecap="round"
+          strokeOpacity="0.1"
+          strokeWidth="16"
+          strokeMiterlimit="10"
+          strokeLinecap="round"
         />
         <path
           d="M111.351 131.742C94.0331 143.585 34.4901 128.963 57.7183 63.9243C78.7896 4.92054 152.249 29.3516 154.758 30.3679"
           stroke="#FF5F21"
-          stroke-opacity="0.1"
-          stroke-width="16"
-          stroke-miterlimit="10"
-          stroke-linecap="round"
+          strokeOpacity="0.1"
+          strokeWidth="16"
+          strokeMiterlimit="10"
+          strokeLinecap="round"
         />
         <path
           d="M1.14027 79.8307C1.14027 79.8307 -4.41788 25.4103 54.4407 1"
           stroke="#343A40"
-          stroke-opacity="0.2"
-          stroke-width="2"
-          stroke-miterlimit="10"
-          stroke-linecap="round"
+          strokeOpacity="0.2"
+          strokeWidth="2"
+          strokeMiterlimit="10"
+          strokeLinecap="round"
         />
         <path
           d="M32.9337 36.5047C32.9337 36.5047 13.2312 68.4435 23.518 84.2884C33.784 100.133 60.7661 53.8844 59.0447 37.1891C57.3233 20.4938 42.7642 22.63 32.9337 36.5047Z"
           fill="#FFC107"
-          fill-opacity="0.2"
+          fillOpacity="0.2"
         />
         <path
           d="M97.3265 165.625C108.837 164.471 117.619 158.056 116.941 151.298C116.263 144.54 106.382 139.997 94.8717 141.151C83.3609 142.306 74.5791 148.721 75.2569 155.479C75.9348 162.237 85.8157 166.78 97.3265 165.625Z"
           fill="#FFC107"
-          fill-opacity="0.2"
+          fillOpacity="0.2"
         />
       </svg>
 
@@ -229,14 +342,12 @@ export default function CarosolSection() {
                     rotate: card.position > 0 ? 20 : -20,
                   }}
                   animate={{
-                    x:
-                      window.innerWidth < 640
-                        ? cardPosition.x.mobile
-                        : cardPosition.x.desktop,
-                    scale:
-                      window.innerWidth < 640
-                        ? cardPosition.scale.mobile
-                        : cardPosition.scale.desktop,
+                    x: isMobile
+                      ? cardPosition.x.mobile
+                      : cardPosition.x.desktop,
+                    scale: isMobile
+                      ? cardPosition.scale.mobile
+                      : cardPosition.scale.desktop,
                     rotate: cardPosition.rotate,
                     opacity: cardPosition.opacity,
                   }}
@@ -255,10 +366,9 @@ export default function CarosolSection() {
                   dragConstraints={{ left: -50, right: 50 }}
                   onDragEnd={handleDragEnd}
                   whileDrag={{
-                    scale:
-                      window.innerWidth < 640
-                        ? cardPosition.scale.mobile * 1.05
-                        : cardPosition.scale.desktop * 1.05,
+                    scale: isMobile
+                      ? cardPosition.scale.mobile * 1.05
+                      : cardPosition.scale.desktop * 1.05,
                   }}
                 >
                   <div
