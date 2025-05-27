@@ -11,8 +11,14 @@ const Newsletter = () => {
       }}
     >
       <div className="my-container">
-        <div className="bg-gradient-to-r from-[#148800] to-[#148800] rounded-2xl lg:p-8 md:p-6 p-4 relative overflow-hidden shadow-lg">
-          <div className="flex flex-col lg:flex-row items-start lg:items-center justify-between relative z-10">
+        <div
+          style={{
+            backgroundImage: "url(/slider/newletter-shape.png)",
+            backgroundSize: "cover",
+          }}
+          className="bg-[#148800] min-h-[252px] flex items-center rounded-2xl lg:p-8 md:p-6 p-4 relative overflow-hidden shadow-lg"
+        >
+          <div className="flex flex-col lg:flex-row items-start w-full lg:items-center justify-between relative z-10">
             <div className="text-white mb-6 lg:mb-0 lg:flex-1">
               <h2 className="hind-siliguri-bold text-2xl lg:text-3xl font-bold mb-3 leading-tight">
                 সততা ও স্বাদের প্রতিশ্রুতি — এক নির্ধারিত মূল্যে

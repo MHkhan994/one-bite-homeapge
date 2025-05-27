@@ -3,6 +3,32 @@ import React from "react";
 import OrderButton from "../common/OrderButton";
 import { CircleCheckBig } from "lucide-react";
 
+import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
+import {
+  Tooltip,
+  TooltipContent,
+  TooltipProvider,
+  TooltipTrigger,
+} from "@/components/ui/tooltip";
+
+const users = [
+  {
+    name: "Liam Wilson",
+    role: "Designer",
+    image: "/middleSection/avatar-1.png",
+  },
+  {
+    name: "Emma Davis",
+    role: "Developer",
+    image: "/middleSection/avatar-2.png",
+  },
+  {
+    name: "Noah Brown",
+    role: "Manager",
+    image: "/middleSection/avatar-3.png",
+  },
+];
+
 const MiddleSection = () => {
   return (
     <section className="relative overflow-hidden">
@@ -130,7 +156,7 @@ const MiddleSection = () => {
             </span>
             , <br /> বিশুদ্ধতায় প্রতিদিন
           </h1>
-          <ul className="list-disc text-green text-sm leading-6 hind-siliguri-semibold xl:pr-10">
+          <ul className="list-disc ps-4 text-green text-sm leading-6 hind-siliguri-semibold xl:pr-10">
             <li>
               One Heart-এ আমরা বিশ্বাস করি, প্রকৃতির কাছে ফেরাটাই স্বাস্থ্যকর
               জীবনের প্রথম ধাপ।
@@ -188,14 +214,35 @@ const MiddleSection = () => {
           </h4>
           <OrderButton />
         </div>
-        <div className="flex justify-center">
+        <div className="flex justify-center relative mb-[80px]">
           <Image
             className="z-10 rounded-2xl w-full object-cover max-w-[600px]"
-            src={"/banner/section-2-extra.png"}
+            src={"/banner/customar-section-bg.png"}
             height={532}
             width={556}
             alt="secton-1"
           />
+          <div className="bg-white text-black flex items-center justify-center flex-col p-4 z-20 absolute -translate-x-1/2 w-1/2 left-1/2 h-[160px] -bottom-[80px] rounded-2xl">
+            <h4 className="font-semibold pb-4">OneBite-এর খুশি গ্রাহকরা</h4>
+            <TooltipProvider delayDuration={0}>
+              <div className="flex -space-x-[5px] *:ring-3 *:ring-background">
+                {users.map((user, index) => (
+                  <Avatar className="size-13" key={index}>
+                    <AvatarImage src={user.image} alt={user.name} />
+                    <AvatarFallback>
+                      {user.name
+                        .split(" ")
+                        .map((n) => n[0])
+                        .join("")}
+                    </AvatarFallback>
+                  </Avatar>
+                ))}
+                <div className="bg-[#078B00] z-20 text-xs font-semibold text-white size-13 flex items-center justify-center rounded-full">
+                  10k+
+                </div>
+              </div>
+            </TooltipProvider>
+          </div>
         </div>
       </div>
     </section>
