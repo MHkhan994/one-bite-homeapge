@@ -97,7 +97,7 @@ export default function CarosolSection() {
     if (absPosition === 0) {
       return {
         x: { mobile: 0, desktop: 0 },
-        scale: { mobile: 1, desktop: 1 },
+        scale: { mobile: 1, desktop: 1.1 },
         rotate: 0,
         zIndex: 5,
         opacity: 1,
@@ -105,33 +105,33 @@ export default function CarosolSection() {
     } else if (absPosition === 1) {
       return {
         x: {
-          mobile: position > 0 ? 80 : -80,
-          desktop: position > 0 ? 120 : -120,
+          mobile: position > 0 ? 100 : -100,
+          desktop: position > 0 ? 180 : -180,
         },
-        scale: { mobile: 0.8, desktop: 0.85 },
-        rotate: position > 0 ? 8 : -8,
+        scale: { mobile: 0.85, desktop: 0.9 },
+        rotate: 0,
         zIndex: 4,
         opacity: 0.8,
       };
     } else if (absPosition === 2) {
       return {
         x: {
-          mobile: position > 0 ? 140 : -140,
-          desktop: position > 0 ? 200 : -200,
+          mobile: position > 0 ? 180 : -180,
+          desktop: position > 0 ? 320 : -320,
         },
-        scale: { mobile: 0.65, desktop: 0.7 },
-        rotate: position > 0 ? 15 : -15,
+        scale: { mobile: 0.7, desktop: 0.75 },
+        rotate: 0,
         zIndex: 3,
         opacity: 0.6,
       };
     } else {
       return {
         x: {
-          mobile: position > 0 ? 200 : -200,
-          desktop: position > 0 ? 280 : -280,
+          mobile: position > 0 ? 240 : -240,
+          desktop: position > 0 ? 420 : -420,
         },
         scale: { mobile: 0.5, desktop: 0.6 },
-        rotate: position > 0 ? 20 : -20,
+        rotate: 0,
         zIndex: 2,
         opacity: 0.3,
       };
@@ -141,7 +141,7 @@ export default function CarosolSection() {
   // Don't render the interactive parts until mounted on client
   if (!isMounted) {
     return (
-      <div className="md:h-[500px] h-[400px] relative overflow-hidden flex items-center justify-center p-4 sm:p-8">
+      <div className="md:h-[700px] h-[400px] relative overflow-hidden flex items-center justify-center p-4 sm:p-8">
         {/* Static background SVGs */}
         <svg
           className="absolute top-0 left-0"
@@ -241,10 +241,10 @@ export default function CarosolSection() {
   return (
     <div
       style={{
-        backgroundImage: `url(/slider/slider-bg.png)`,
+        backgroundImage: "url(/slider/slider-bg.png)",
         backgroundSize: "cover",
       }}
-      className="md:h-[500px] h-[400px] relative overflow-hidden flex items-center justify-center p-4 sm:p-8"
+      className="md:h-[700px] h-[400px] relative overflow-hidden flex items-center justify-center p-4 sm:p-8"
     >
       <svg
         className="absolute top-0 left-0"
@@ -345,7 +345,7 @@ export default function CarosolSection() {
                     x: card.position > 0 ? 300 : -300,
                     scale: 0.8,
                     opacity: 0,
-                    rotate: card.position > 0 ? 20 : -20,
+                    rotate: 0,
                   }}
                   animate={{
                     x: isMobile
@@ -361,7 +361,7 @@ export default function CarosolSection() {
                     x: card.position > 0 ? -300 : 300,
                     scale: 0.8,
                     opacity: 0,
-                    rotate: card.position > 0 ? -20 : 20,
+                    rotate: 0,
                   }}
                   transition={{
                     type: "spring",
@@ -378,17 +378,13 @@ export default function CarosolSection() {
                   }}
                 >
                   <div
-                    className={`w-full h-full rounded-3xl sm:rounded-3xl bg-gradient-to-br ${card.color} shadow-xl sm:shadow-2xl overflow-hidden`}
-                  >
-                    <div
-                      style={{
-                        backgroundImage: `url("${card.image}")`,
-                        backgroundSize: "cover",
-                        backgroundPosition: "center",
-                      }}
-                      className="p-3 sm:p-6 h-full flex flex-col items-center justify-center text-white"
-                    ></div>
-                  </div>
+                    style={{
+                      backgroundImage: `url(${card.image})`,
+                      backgroundSize: "cover",
+                      backgroundPosition: "center",
+                    }}
+                    className="w-full h-full rounded-2xl sm:rounded-3xl bg-white shadow-lg sm:shadow-xl overflow-hidden border border-white/20"
+                  ></div>
                 </motion.div>
               );
             })}
@@ -399,7 +395,7 @@ export default function CarosolSection() {
         <Button
           variant="outline"
           size="icon"
-          className="absolute left-2 sm:left-4 top-1/2 transform -translate-y-1/2 bg-white/80 backdrop-blur-sm border-white/20 hover:bg-white/90 z-10 text-black cursor-pointer h-8 w-8 sm:h-10 sm:w-10"
+          className="absolute left-2 sm:left-4 top-1/2 transform -translate-y-1/2 bg-white shadow-lg border-0 hover:bg-gray-50 z-10 text-gray-700 cursor-pointer h-10 w-10 sm:h-12 sm:w-12 rounded-full"
           onClick={goToPrevious}
         >
           <ChevronLeft className="h-3 w-3 sm:h-4 sm:w-4" />
@@ -408,7 +404,7 @@ export default function CarosolSection() {
         <Button
           variant="outline"
           size="icon"
-          className="absolute right-2 sm:right-4 top-1/2 transform -translate-y-1/2 bg-white/80 backdrop-blur-sm border-white/20 hover:bg-white/90 text-black cursor-pointer z-10 h-8 w-8 sm:h-10 sm:w-10"
+          className="absolute right-2 sm:right-4 top-1/2 transform -translate-y-1/2 bg-white shadow-lg border-0 hover:bg-gray-50 z-10 text-gray-700 cursor-pointer h-10 w-10 sm:h-12 sm:w-12 rounded-full"
           onClick={goToNext}
         >
           <ChevronRight className="h-3 w-3 sm:h-4 sm:w-4" />
@@ -419,10 +415,10 @@ export default function CarosolSection() {
           {products.map((_, index) => (
             <button
               key={index}
-              className={`w-1.5 h-1.5 sm:w-2 sm:h-2 rounded-full transition-all duration-300 ${
+              className={`w-2 h-2 sm:w-3 sm:h-3 rounded-full transition-all duration-300 ${
                 index === currentIndex
-                  ? "bg-amber-600 w-4 sm:w-6"
-                  : "bg-white/50"
+                  ? "bg-orange-500 scale-125"
+                  : "bg-white/70 hover:bg-white/90"
               }`}
               onClick={() => setCurrentIndex(index)}
             />

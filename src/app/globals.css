@@ -3,12 +3,13 @@
 
 :root {
   --background: #ffffff;
-  --foreground: #171717;
+  --foreground: #f5f5f5;
   --primary: #ff4a00;
   --secondary: #f9ea96;
   --dark: #011101;
   --gray: #545454;
   --green: #078b00;
+  --border: #e5e5e5;
 }
 
 @theme inline {
@@ -21,12 +22,13 @@
   --color-dark: var(--dark);
   --color-gray: var(--gray);
   --color-green: var(--green);
+  --color-border: var(--border);
 }
 
 @media (prefers-color-scheme: dark) {
   :root {
-    --background: #ededed;
-    --foreground: #ededed;
+    --background: #ffffff;
+    --foreground: #f5f5f5;
   }
 }
 
