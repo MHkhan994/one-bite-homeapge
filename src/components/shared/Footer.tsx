@@ -20,7 +20,7 @@ const Footer = () => {
           />
         </svg>
 
-        <div className="mx-auto px-8 py-12">
+        <div className="mx-auto md:py-12 py-6">
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             <div className="space-y-4">
               <div className="flex items-center mb-4">

@@ -27,6 +27,11 @@ const users = [
     role: "Manager",
     image: "/middleSection/avatar-3.png",
   },
+  {
+    name: "Noah Brown",
+    role: "Manager",
+    image: "/middleSection/avatar-3.png",
+  },
 ];
 
 const MiddleSection = () => {
@@ -128,9 +133,9 @@ const MiddleSection = () => {
         />
       </svg>
 
-      <div className="my-container py-20 flex xl:flex-row flex-col-reverse gap-7 relative z-10">
+      <div className="my-container py-6 xl:py-16 flex xl:flex-row flex-col-reverse gap-4 relative z-10">
         <div className="relative w-full max-w-[560px] mx-auto xl:mx-0">
-          <div className="bg-[#078B00] sm:left-0 left-4 xl:-bottom-0 -bottom-6 -rotate-[10deg] h-[160px] w-[245px] md:h-[255px] md:w-[315px] md:rounded-[60px] rounded-4xl absolute"></div>
+          <div className="bg-[#078B00] sm:left-0 left-4 xl:-bottom-0 bottom-4 -rotate-[10deg] h-[160px] w-[245px] md:h-[255px] md:w-[315px] md:rounded-[60px] rounded-4xl absolute"></div>
           <div className="ps-14 mb-16 sm:block justify-center w-full">
             <Image
               className="z-10 relative md:w-[402px] sm:w-[350px] min-[480px]:w-[300px] w-[250px]"
@@ -149,8 +154,8 @@ const MiddleSection = () => {
           </div>
         </div>
 
-        <div className="text-dark space-y-3 xl:pr-16 w-full xl:pt-0 lg:pt-10 pt-6">
-          <h1 className="lg:text-[42px] md:text-4xl text-2xl hind-siliguri-bold leading-10 xl:leading-16">
+        <div className="text-dark space-y-3 xl:pr-16 w-full xl:pt-0 lg:pt-10">
+          <h1 className="lg:text-[42px] md:text-4xl text-2xl hind-siliguri-bold leading-8 xl:leading-16">
             <span className="lg:text-[45px] md:text-4xl text-2xl">
               OneBite Premium
             </span>
@@ -174,9 +179,9 @@ const MiddleSection = () => {
         </div>
       </div>
 
-      <div className="my-container pb-20 grid xl:grid-cols-2 gap-6 items-center relative z-10">
+      <div className="my-container pb-7 grid xl:grid-cols-2 gap-6 items-center relative z-10">
         <div className="space-y-3">
-          <h1 className="lg:text-[42px] md:text-4xl text-2xl hind-siliguri-bold text-dark leading-10 xl:leading-16">
+          <h1 className="lg:text-[42px] md:text-4xl text-2xl hind-siliguri-bold text-dark leading-8 xl:leading-16">
             <span className="lg:text-[45px] md:text-4xl text-2xl">
               OneBite Premium
             </span>
@@ -222,12 +227,12 @@ const MiddleSection = () => {
             width={556}
             alt="secton-1"
           />
-          <div className="bg-white text-black flex items-center justify-center flex-col p-4 z-20 absolute -translate-x-1/2 w-1/2 left-1/2 h-[160px] -bottom-[80px] rounded-2xl">
+          <div className="bg-white text-black flex items-center justify-center flex-col p-4 z-20 absolute -translate-x-1/2 md:w-1/2 w-[75%] left-1/2 md:h-[160px] h-[120px] shadow-md -bottom-[80px] rounded-2xl">
             <h4 className="font-semibold pb-4">OneBite-এর খুশি গ্রাহকরা</h4>
             <TooltipProvider delayDuration={0}>
               <div className="flex -space-x-[5px] *:ring-3 *:ring-background">
                 {users.map((user, index) => (
-                  <Avatar className="size-13" key={index}>
+                  <Avatar className="lg:size-13 size-10" key={index}>
                     <AvatarImage src={user.image} alt={user.name} />
                     <AvatarFallback>
                       {user.name
@@ -237,7 +242,7 @@ const MiddleSection = () => {
                     </AvatarFallback>
                   </Avatar>
                 ))}
-                <div className="bg-[#078B00] z-20 text-xs font-semibold text-white size-13 flex items-center justify-center rounded-full">
+                <div className="bg-[#078B00] z-20 text-xs font-semibold text-white lg:size-13 size-10 flex items-center justify-center rounded-full">
                   10k+
                 </div>
               </div>

@@ -7,7 +7,7 @@ import OrderButton from "../common/OrderButton";
 
 const Banner = () => {
   return (
-    <div className="bg-secondary relative lg:h-[calc(520px)] overflow-hidden py-10">
+    <div className="bg-secondary relative lg:h-[calc(520px)] h-[500px] overflow-hidden py-10">
       <Image
         className="opacity-30 absolute inset-0 z-0 h-full object-cover"
         width={1460}
@@ -15,14 +15,14 @@ const Banner = () => {
         src={"/banner/banner-bg.png"}
         alt="banner-bg"
       />
-      <div className="my-container lg:flex items-center h-full relative z-10">
-        <div className="lg:w-[60%] lg:space-y-6 md:space-y-4 space-y-3 text-center lg:text-start">
-          <div className="text-dark lg:leading-20 md:leading-16 lg:text-[50px] md:text-[36px] text-2xl hind-siliguri-bold font-black">
+      <div className="my-container px-4 flex lg:flex-row flex-col lg:justify-between justify-center items-center h-full relative z-10">
+        <div className="lg:w-[60%] lg:space-y-6 md:space-y-4 space-y-2 text-center lg:text-start">
+          <div className="text-dark lg:leading-20 mt-4 md:mt-0 md md:leading-16 lg:text-[50px] leading-9 md:text-[36px] text-[28px] hind-siliguri-bold font-black">
             <h2 className="inline">
               <p className="inline relative text-primary">
                 OneBite
                 <svg
-                  className="absolute -bottom-3 left-0 lg:w-[178px] md:w-[130px] w-[90px]"
+                  className="absolute -bottom-[10px] md:-bottom-3 left-0 lg:w-[178px] md:w-[130px] w-[90px]"
                   width="178"
                   height="18"
                   viewBox="0 0 178 18"
@@ -40,13 +40,13 @@ const Banner = () => {
             </h2>
             , খাঁটি স্বাদ, সুগন্ধ আর বিশুদ্ধতার প্রতীক{" "}
           </div>
-          <h4 className="hind-siliguri-semibold text-gray lg:text-xl md:text-base text-sm md:leading-6 lg:leading-7 lg:pr-[140px]">
+          <h4 className="hind-siliguri-semibold pb-2 text-gray lg:text-xl md:text-base text-sm md:leading-6 lg:leading-7 lg:pr-[140px]">
             "OneBite Premium" একটি আনকম্প্রোমাইসড কোয়ালিটি মাস্টার্ড অয়েল, যা
             নিশ্চিতভাবে বাংলাদেশের বাজারে সেরা মানের তেলগুলোর একটি
           </h4>
           <OrderButton />
         </div>
-        <div className="lg:absolute py-5 lg:py-0 lg:w-[52%] right-0">
+        <div className="lg:absolute py-4 lg:py-0 lg:w-[52%] right-0">
           <Image
             className=""
             width={1650}

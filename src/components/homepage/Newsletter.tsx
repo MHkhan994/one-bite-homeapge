@@ -4,7 +4,7 @@ import OrderButton from "../common/OrderButton";
 const Newsletter = () => {
   return (
     <div
-      className="py-16 bg-gradient-to-r from-amber-400 to-amber-50"
+      className="lg:py-16 md:py-10 py-6 bg-gradient-to-r from-amber-400 to-amber-50"
       style={{
         backgroundImage: "url(/slider/newsletter-bg.png)",
         backgroundSize: "cover",

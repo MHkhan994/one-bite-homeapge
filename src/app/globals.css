@@ -43,7 +43,7 @@ body {
 }
 
 .my-container {
-  @apply w-[95%] max-w-[1440px] mx-auto;
+  @apply w-full px-4 max-w-[1440px] mx-auto;
 }
 
 .hind-siliguri-light {

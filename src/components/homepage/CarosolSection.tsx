@@ -244,7 +244,7 @@ export default function CarosolSection() {
         backgroundImage: "url(/slider/slider-bg.png)",
         backgroundSize: "cover",
       }}
-      className="md:h-[700px] h-[400px] relative overflow-hidden flex items-center justify-center p-4 sm:p-8"
+      className="md:h-[700px] h-full relative overflow-hidden flex items-center justify-center p-4 sm:p-8"
     >
       <svg
         className="absolute top-0 left-0"
