@@ -10,7 +10,7 @@ import {
 } from "@/components/ui/form";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
-import { Mail, Phone } from "lucide-react";
+import { CircleArrowRight, Mail, Phone } from "lucide-react";
 import Image from "next/image";
 import React from "react";
 import { z } from "zod";
@@ -89,9 +89,13 @@ const OrderPage = () => {
                   control={form.control}
                   name="name"
                   render={({ field }) => (
-                    <FormItem>
+                    <FormItem className="w-full">
                       <FormControl>
-                        <Input placeholder="নাম *" {...field} />
+                        <Input
+                          placeholder="নাম *"
+                          {...field}
+                          className="w-full"
+                        />
                       </FormControl>
                       <FormMessage />
                     </FormItem>
@@ -101,9 +105,13 @@ const OrderPage = () => {
                   control={form.control}
                   name="email"
                   render={({ field }) => (
-                    <FormItem>
+                    <FormItem className="w-full">
                       <FormControl>
-                        <Input placeholder="ইমেইল *" {...field} />
+                        <Input
+                          placeholder="ইমেইল *"
+                          {...field}
+                          className="w-full"
+                        />
                       </FormControl>
                       <FormMessage />
                     </FormItem>
@@ -138,7 +146,9 @@ const OrderPage = () => {
                   </FormItem>
                 )}
               />
-              <Button>Send</Button>
+              <Button className="hind-siliguri-semibold rounded-xl justify-center text-sm text-white cursor-pointer h-[46px] flex items-center">
+                সাবমিট করুন <CircleArrowRight size={20} />
+              </Button>
             </div>
           </form>
         </Form>
