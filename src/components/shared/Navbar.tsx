@@ -10,6 +10,15 @@ import {
   SheetTitle,
   SheetTrigger,
 } from "../ui/sheet";
+import {
+  DropdownMenu,
+  DropdownMenuContent,
+  DropdownMenuGroup,
+  DropdownMenuItem,
+  DropdownMenuTrigger,
+} from "../ui/dropdown-menu";
+import { Popover, PopoverContent, PopoverTrigger } from "../ui/popover";
+import { PopoverClose } from "@radix-ui/react-popover";
 
 const Navbar = () => {
   return (
@@ -27,8 +36,8 @@ const Navbar = () => {
           <Link href={"/"}>Products </Link>
           <Link href={"/"}>Pricing</Link>
         </div>
-        <Sheet>
-          <SheetTrigger className="sm:hidden">
+        <Popover>
+          <PopoverTrigger className="sm:hidden">
             <svg
               width="12"
               height="12"
@@ -41,17 +50,21 @@ const Navbar = () => {
                 fill="#011101"
               />
             </svg>
-          </SheetTrigger>
-          <SheetContent>
-            <SheetClose asChild>
-              <div className="text-black space-y-3 flex flex-col">
+          </PopoverTrigger>
+          <PopoverContent className="bg-background max-w-36">
+            <div className="text-black space-y-3 flex flex-col text-start justify-start">
+              <PopoverClose className="text-start">
                 <Link href={"/"}>About Us</Link>
+              </PopoverClose>
+              <PopoverClose className="text-start">
                 <Link href={"/"}>Products </Link>
+              </PopoverClose>
+              <PopoverClose className="text-start">
                 <Link href={"/"}>Pricing</Link>
-              </div>
-            </SheetClose>
-          </SheetContent>
-        </Sheet>
+              </PopoverClose>
+            </div>
+          </PopoverContent>
+        </Popover>
       </div>
     </div>
   );

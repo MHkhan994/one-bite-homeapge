@@ -106,7 +106,7 @@ export async function POST(request: NextRequest) {
               <div style="margin-top: 40px; padding-top: 30px; border-top: 2px solid #e2e8f0;">
                 <h3 style="margin: 0 0 20px 0; color: #1e293b; font-size: 16px; font-weight: 600;">Quick Actions</h3>
                 <div style="display: flex; gap: 12px; flex-wrap: wrap;">
-                  <a href="mailto:${email}" style="display: inline-block; background-color: #3b82f6; color: #ffffff; padding: 12px 20px; text-decoration: none; border-radius: 6px; font-weight: 500; font-size: 14px;">
+                  <a href="mailto:${email}" style="display: inline-block; background-color: #3b82f6; color: #ffffff; padding: 12px 20px; text-decoration: none; border-radius: 6px; font-weight: 500; font-size: 14px; margin-right: 10px;">
                     Reply via Email
                   </a>
                   <a href="tel:${phone}" style="display: inline-block; background-color: #10b981; color: #ffffff; padding: 12px 20px; text-decoration: none; border-radius: 6px; font-weight: 500; font-size: 14px;">

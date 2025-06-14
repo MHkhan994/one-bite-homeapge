@@ -58,14 +58,14 @@ const OrderPage = () => {
 
   return (
     <div className="min-h-screen relative overflow-hidden">
-      <div className="my-16 grid grid-cols-1 xl:grid-cols-2 gap-8 my-container items-center">
+      <div className="md:my-10 my-5 grid grid-cols-1 xl:grid-cols-2 gap-8 my-container items-center">
         <Form {...form}>
           <form onSubmit={form.handleSubmit(handleSubmit)}>
-            <div className="text-black space-y-4">
-              <h2 className="xl:text-5xl lg:text-4xl md:text-3xl text-2xl font-semibold xl:leading-16 pb-4">
+            <div className="text-black md:space-y-4 space-y-2">
+              <h2 className="xl:text-5xl lg:text-4xl md:text-3xl text-2xl font-semibold xl:leading-16 md:pb-4 pb-2">
                 আপনি কি আমাদের Onebite Premium ক্রয় করতে চান?
               </h2>
-              <div className="flex md:flex-row flex-col gap-4 w-full">
+              <div className="flex md:flex-row flex-col md:gap-4 gap-2 w-full">
                 <div className="bg-[#078B001A] rounded-lg p-5 gap-3 flex flex-col justify-center w-full py-2 min-h-[100px]">
                   <p className="flex text-gray font-medium text-base items-center gap-2">
                     <Mail /> ইমেইল করুন
