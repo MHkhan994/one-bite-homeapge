@@ -329,9 +329,9 @@ export default function CarosolSection() {
         />
       </svg>
 
-      <div className="relative w-full max-w-sm sm:max-w-4xl h-64 sm:h-96 flex items-center justify-center">
+      <div className="relative w-full max-w-sm sm:max-w-5xl h-64 sm:h-96 flex items-center justify-center">
         {/* Cards */}
-        <div className="relative w-48 h-56 sm:w-80 sm:h-96">
+        <div className="relative w-48 h-56 sm:w-[450px] sm:h-[500px]">
           <AnimatePresence mode="popLayout">
             {visibleCards.map((card) => {
               const cardPosition = getCardPosition(card.position);
@@ -342,7 +342,7 @@ export default function CarosolSection() {
                   className="absolute inset-0 cursor-grab active:cursor-grabbing touch-pan-x"
                   style={{ zIndex: cardPosition.zIndex }}
                   initial={{
-                    x: card.position > 0 ? 300 : -300,
+                    x: card.position > 0 ? 350 : -350,
                     scale: 0.8,
                     opacity: 0,
                     rotate: 0,
@@ -358,7 +358,7 @@ export default function CarosolSection() {
                     opacity: cardPosition.opacity,
                   }}
                   exit={{
-                    x: card.position > 0 ? -300 : 300,
+                    x: card.position > 0 ? -350 : 350,
                     scale: 0.8,
                     opacity: 0,
                     rotate: 0,

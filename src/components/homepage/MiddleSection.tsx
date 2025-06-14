@@ -133,7 +133,7 @@ const MiddleSection = () => {
         />
       </svg>
 
-      <div className="my-container py-6 xl:py-16 flex xl:flex-row flex-col-reverse gap-4 relative z-10">
+      <div className="my-container py-6 xl:py-16 flex xl:flex-row xl:items-center flex-col-reverse xl:gap-16 gap-4 relative z-10">
         <div className="relative w-full max-w-[560px] mx-auto xl:mx-0">
           <div className="bg-[#078B00] sm:left-0 left-4 xl:-bottom-0 bottom-4 -rotate-[10deg] h-[160px] w-[245px] md:h-[255px] md:w-[315px] md:rounded-[60px] rounded-4xl absolute"></div>
           <div className="ps-14 mb-16 sm:block justify-center w-full">
@@ -172,7 +172,8 @@ const MiddleSection = () => {
             </li>
           </ul>
           <h4 className="hind-siliguri-medium text-gray text-base md:leading-6 lg:leading-7">
-            ওয়ানবাইট প্রিমিয়াম আধুনিক বাঙালি গৃহিণীর রান্নাঘরে আবহমান বাংলা আর
+            ওয়ানবাইট প্রিমিয়াম আধুনিক বাঙালি গৃহিণীর রান্নাঘরে আবহমান বাংলা আর{" "}
+            <br />
             আধুনিকতার এক মেলবন্ধন.
           </h4>
           <OrderButton />
@@ -227,7 +228,7 @@ const MiddleSection = () => {
             width={556}
             alt="secton-1"
           />
-          <div className="bg-white text-black flex items-center justify-center flex-col p-4 z-20 absolute -translate-x-1/2 md:w-1/2 w-[75%] left-1/2 md:h-[160px] h-[120px] shadow-md -bottom-[80px] rounded-2xl">
+          <div className="bg-white text-black flex items-center justify-center flex-col p-4 z-20 absolute -translate-x-1/2 md:w-2/3 w-[75%] left-1/2 md:h-[160px] h-[120px] shadow-md -bottom-[80px] rounded-2xl">
             <h4 className="font-semibold pb-4">OneBite-এর খুশি গ্রাহকরা</h4>
             <TooltipProvider delayDuration={0}>
               <div className="flex -space-x-[5px] *:ring-3 *:ring-background">
