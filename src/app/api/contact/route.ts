@@ -1,11 +1,16 @@
 // src/app/api/contact/route.ts
 import { Resend } from "resend";
 import { NextRequest } from "next/server";
+import connectDB from "@/lib/mongodb";
+import contactModel from "./contact.model";
 
 const resend = new Resend(process.env.RESEND_API_KEY);
 
 export async function POST(request: NextRequest) {
   try {
+    // Connect to database
+    await connectDB();
+
     const body = await request.json();
     const { email, phone, message, name } = body;
 
@@ -17,6 +22,17 @@ export async function POST(request: NextRequest) {
       );
     }
 
+    // Save to database first
+    const contact = new contactModel({
+      name: name.trim(),
+      email: email.trim().toLowerCase(),
+      phone: phone.trim(),
+      message: message?.trim() || undefined,
+    });
+
+    const savedContact = await contact.save();
+
+    // Send email
     await resend.emails.send({
       from: "onboarding@resend.dev", // Use your verified domain or resend's default
       to: "khanmahmud994@gmail.com", // Replace with your actual email
@@ -39,6 +55,9 @@ export async function POST(request: NextRequest) {
               </h1>
               <p style="margin: 8px 0 0 0; color: #e2e8f0; font-size: 16px; opacity: 0.9;">
                 Someone reached out through your contact form
+              </p>
+              <p style="margin: 4px 0 0 0; color: #e2e8f0; font-size: 14px; opacity: 0.7;">
+                ID: ${savedContact._id}
               </p>
             </div>
             
@@ -138,11 +157,151 @@ export async function POST(request: NextRequest) {
       `,
     });
 
-    return Response.json({ success: true });
-  } catch (error) {
-    console.error("Email sending error:", error);
+    return Response.json({
+      success: true,
+      data: {
+        id: savedContact._id,
+        message: "Contact form submitted successfully",
+      },
+    });
+  } catch (error: any) {
+    console.error("Contact form submission error:", error);
+
+    // Return appropriate error message
+    if (error.name === "ValidationError") {
+      const validationErrors = Object.values(error.errors).map(
+        (err: any) => err.message
+      );
+      return Response.json(
+        {
+          success: false,
+          error: "Validation failed",
+          details: validationErrors,
+        },
+        { status: 400 }
+      );
+    }
+
     return Response.json(
-      { success: false, error: "Failed to send email" },
+      { success: false, error: "Failed to process contact form submission" },
+      { status: 500 }
+    );
+  }
+}
+
+// GET method to retrieve contacts with pagination, filtering, and sorting
+export async function GET(request: NextRequest) {
+  try {
+    await connectDB();
+
+    const { searchParams } = new URL(request.url);
+
+    // Pagination parameters
+    const page = Math.max(1, parseInt(searchParams.get("page") || "1"));
+    const limit = Math.min(
+      100,
+      Math.max(1, parseInt(searchParams.get("limit") || "10"))
+    );
+    const skip = (page - 1) * limit;
+
+    // Filter parameters
+    const status = searchParams.get("status");
+    const search = searchParams.get("search");
+    const email = searchParams.get("email");
+    const dateFrom = searchParams.get("dateFrom");
+    const dateTo = searchParams.get("dateTo");
+
+    // Sort parameters
+    const sortBy = searchParams.get("sortBy") || "createdAt";
+    const sortOrder = searchParams.get("sortOrder") === "asc" ? 1 : -1;
+
+    // Build query object
+    const query: any = {};
+
+    if (
+      status &&
+      ["pending", "contacted", "ordered", "delivered", "closed"].includes(
+        status
+      )
+    ) {
+      query.status = status;
+    }
+
+    if (email) {
+      query.email = { $regex: email, $options: "i" };
+    }
+
+    if (search) {
+      query.$or = [
+        { name: { $regex: search, $options: "i" } },
+        { email: { $regex: search, $options: "i" } },
+        { message: { $regex: search, $options: "i" } },
+      ];
+    }
+
+    if (dateFrom || dateTo) {
+      query.createdAt = {};
+      if (dateFrom) {
+        query.createdAt.$gte = new Date(dateFrom);
+      }
+      if (dateTo) {
+        query.createdAt.$lte = new Date(dateTo);
+      }
+    }
+
+    // Build sort object
+    const sort: any = {};
+    const allowedSortFields = [
+      "createdAt",
+      "updatedAt",
+      "name",
+      "email",
+      "status",
+    ];
+    if (allowedSortFields.includes(sortBy)) {
+      sort[sortBy] = sortOrder;
+    } else {
+      sort.createdAt = -1; // Default sort
+    }
+
+    // Execute queries
+    const [contacts, totalCount] = await Promise.all([
+      contactModel.find(query).sort(sort).skip(skip).limit(limit).lean(),
+      contactModel.countDocuments(query),
+    ]);
+
+    // Calculate pagination info
+    const totalPages = Math.ceil(totalCount / limit);
+    const hasNextPage = page < totalPages;
+    const hasPrevPage = page > 1;
+
+    return Response.json({
+      success: true,
+      data: contacts,
+      pagination: {
+        currentPage: page,
+        totalPages,
+        totalCount,
+        limit,
+        hasNextPage,
+        hasPrevPage,
+        nextPage: hasNextPage ? page + 1 : null,
+        prevPage: hasPrevPage ? page - 1 : null,
+      },
+      filters: {
+        status,
+        search,
+        email,
+        dateFrom,
+        dateTo,
+        sortBy,
+        sortOrder: sortOrder === 1 ? "asc" : "desc",
+      },
+    });
+  } catch (error) {
+    console.error("Error fetching contacts:", error);
+    return Response.json(
+      { success: false, error: "Failed to fetch contacts" },
       { status: 500 }
     );
   }

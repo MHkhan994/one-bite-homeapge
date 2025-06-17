@@ -2,6 +2,7 @@ import { Be_Vietnam_Pro, Plus_Jakarta_Sans } from "next/font/google";
 import "./globals.css";
 import Navbar from "@/components/shared/Navbar";
 import Footer from "@/components/shared/Footer";
+import { Toaster } from "sonner";
 
 const beVietnam = Be_Vietnam_Pro({
   variable: "--font-be-vietnam",
@@ -25,6 +26,7 @@ export default function RootLayout({
       <body
         className={`${beVietnam.variable} ${plusJakarta.variable} antialiased bg-background`}
       >
+        <Toaster richColors />
         <div className="max-w-[1920px] mx-auto">
           <Navbar />
           {children}
