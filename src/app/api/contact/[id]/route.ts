@@ -82,41 +82,41 @@ export async function PATCH(
   }
 }
 
-export async function DELETE(
-  request: NextRequest,
-  { params }: { params: { id: string } }
-) {
-  try {
-    await connectDB();
+// export async function DELETE(
+//   request: NextRequest,
+//   { params }: { params: { id: string } }
+// ) {
+//   try {
+//     await connectDB();
 
-    const { id } = params;
+//     const { id } = params;
 
-    // Validate MongoDB ObjectId
-    if (!mongoose.Types.ObjectId.isValid(id)) {
-      return Response.json(
-        { success: false, error: "Invalid contact ID" },
-        { status: 400 }
-      );
-    }
+//     // Validate MongoDB ObjectId
+//     if (!mongoose.Types.ObjectId.isValid(id)) {
+//       return Response.json(
+//         { success: false, error: "Invalid contact ID" },
+//         { status: 400 }
+//       );
+//     }
 
-    const contact = await contactModel.findByIdAndDelete(id);
+//     const contact = await contactModel.findByIdAndDelete(id);
 
-    if (!contact) {
-      return Response.json(
-        { success: false, error: "Contact not found" },
-        { status: 404 }
-      );
-    }
+//     if (!contact) {
+//       return Response.json(
+//         { success: false, error: "Contact not found" },
+//         { status: 404 }
+//       );
+//     }
 
-    return Response.json({
-      success: true,
-      message: "Contact deleted successfully",
-    });
-  } catch (error) {
-    console.error("Error deleting contact:", error);
-    return Response.json(
-      { success: false, error: "Failed to delete contact" },
-      { status: 500 }
-    );
-  }
-}
+//     return Response.json({
+//       success: true,
+//       message: "Contact deleted successfully",
+//     });
+//   } catch (error) {
+//     console.error("Error deleting contact:", error);
+//     return Response.json(
+//       { success: false, error: "Failed to delete contact" },
+//       { status: 500 }
+//     );
+//   }
+// }
