@@ -171,9 +171,8 @@ const MiddleSection = () => {
               ও ঐতিহ্যের ছোঁয়া।
             </li>
           </ul>
-          <h4 className="hind-siliguri-medium text-gray text-base md:leading-6 lg:leading-7">
-            ওয়ানবাইট প্রিমিয়াম আধুনিক বাঙালি গৃহিণীর রান্নাঘরে আবহমান বাংলা আর{" "}
-            <br />
+          <h4 className="hind-siliguri-medium text-gray text-base md:leading-6 lg:leading-7 md:pr-60">
+            ওয়ানবাইট প্রিমিয়াম আধুনিক বাঙালি গৃহিণীর রান্নাঘরে আবহমান বাংলা আর
             আধুনিকতার এক মেলবন্ধন.
           </h4>
           <OrderButton />
