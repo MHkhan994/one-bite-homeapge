@@ -61,7 +61,7 @@ ContactSchema.index({ status: 1 });
 ContactSchema.index({ name: "text", message: "text" }); // Text search index
 
 // Virtual for formatted date
-ContactSchema.virtual("formattedDate").get(function () {
+ContactSchema.virtual("formattedDate").get(function (this: IContact) {
   return this.createdAt.toLocaleDateString("en-US", {
     year: "numeric",
     month: "long",
