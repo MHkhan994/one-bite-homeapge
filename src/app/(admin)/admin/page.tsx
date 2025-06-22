@@ -4,7 +4,7 @@ import { Contact } from "@/types/contact";
 import ContactsTable from "@/components/admin/ContactsTable";
 
 const AdminPage = async () => {
-  const res = await fetch("http://localhost:3000/api/contact", {
+  const res = await fetch(`${process.env.NEXT_PUBLIC_DOMAIN}/api/contact`, {
     method: "GET",
   });
   const data = await res.json();

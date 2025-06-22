@@ -6,6 +6,7 @@
     "dev": "next dev --turbopack",
     "build": "next build",
     "build:prod": "env-cmd -f .env.prod next build",
+    "dev:prod": "env-cmd -f .env.prod next dev --turbopack",
     "start": "next start",
     "lint": "next lint"
   },

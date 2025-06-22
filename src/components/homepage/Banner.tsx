@@ -9,7 +9,7 @@ const Banner = () => {
   return (
     <div className="bg-secondary relative lg:h-[calc(520px)] h-[500px] overflow-hidden py-10">
       <Image
-        className="opacity-30 absolute inset-0 z-0 h-full object-cover"
+        className="opacity-30 absolute inset-0 z-0 h-full w-full object-cover"
         width={1460}
         height={560}
         src={"/banner/banner-bg.png"}

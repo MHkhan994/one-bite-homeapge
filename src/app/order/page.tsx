@@ -71,7 +71,7 @@ const OrderPage = () => {
                     <Mail /> ইমেইল করুন
                   </p>
                   <h3 className="text-black font-medium lg:text-2xl text-lg">
-                    support@gmail.com
+                    greenadnan01@gmail.com
                   </h3>
                 </div>
                 <div className="bg-[#FF4A001A] rounded-lg flex flex-col justify-center gap-3 p-5 py-2 w-full min-h-[100px]">

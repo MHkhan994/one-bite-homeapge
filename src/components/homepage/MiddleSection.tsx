@@ -179,7 +179,7 @@ const MiddleSection = () => {
         </div>
       </div>
 
-      <div className="my-container pb-7 grid xl:grid-cols-2 gap-6 items-center relative z-10">
+      <div className="my-container pb-7 xl:pb-12 grid xl:grid-cols-2 gap-6 items-center relative z-10">
         <div className="space-y-3">
           <h1 className="lg:text-[42px] md:text-4xl text-2xl hind-siliguri-bold text-dark leading-8 xl:leading-16">
             <span className="lg:text-[45px] md:text-4xl text-2xl">
