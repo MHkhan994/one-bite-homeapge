@@ -35,7 +35,7 @@ export async function POST(request: NextRequest) {
     // Send email
     await resend.emails.send({
       from: "onboarding@resend.dev", // Use your verified domain or resend's default
-      to: "khanmahmud994@gmail.com", // Replace with your actual email
+      to: "greenadnan01@gmail.com", // Replace with your actual email
       subject: "New Contact Form Submission",
       replyTo: email, // This allows you to reply directly to the user
       html: `

@@ -80,7 +80,7 @@ const OrderPage = () => {
                     কল করুন
                   </p>
                   <h3 className="text-black font-medium lg:text-2xl text-lg">
-                    +8801754123456
+                    +880 1751-451330
                   </h3>
                 </div>
               </div>
