@@ -26,7 +26,7 @@ export default function RootLayout({
       <body
         className={`${beVietnam.variable} ${plusJakarta.variable} antialiased bg-background`}
       >
-        <Toaster richColors />
+        <Toaster richColors position="top-center" />
         <div className="max-w-[1920px] mx-auto">
           <Navbar />
           {children}

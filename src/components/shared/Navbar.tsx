@@ -24,17 +24,19 @@ const Navbar = () => {
   return (
     <div className="bg-secondary w-full">
       <div className="my-container border-b border-[#0000001A] p-2 pt-6 flex justify-between items-center lg:h-[90px] md:h-[70px] h-[70px]">
-        <Image
-          src={"/logo.png"}
-          className="w-[110px] md:w-[130px] lg:w-[160px] "
-          height={60}
-          width={160}
-          alt="logo"
-        />
+        <Link href={"/"}>
+          <Image
+            src={"/logo.png"}
+            className="w-[110px] md:w-[130px] lg:w-[160px] "
+            height={60}
+            width={160}
+            alt="logo"
+          />
+        </Link>
         <div className="sm:flex hidden items-center gap-5 text-dark text-lg font-medium">
-          <Link href={"/"}>About Us</Link>
-          <Link href={"/"}>Products </Link>
-          <Link href={"/"}>Pricing</Link>
+          <Link href={"/#about-us"}>About Us</Link>
+          <Link href={"/#about-product"}>Products </Link>
+          <Link href={"/#pricing"}>Pricing</Link>
         </div>
         <Popover>
           <PopoverTrigger className="sm:hidden">
@@ -54,13 +56,13 @@ const Navbar = () => {
           <PopoverContent className="bg-background max-w-36">
             <div className="text-black space-y-3 flex flex-col text-start justify-start">
               <PopoverClose className="text-start">
-                <Link href={"/"}>About Us</Link>
+                <Link href={"/#about-us"}>About Us</Link>
               </PopoverClose>
               <PopoverClose className="text-start">
-                <Link href={"/"}>Products </Link>
+                <Link href={"/#about-product"}>Products </Link>
               </PopoverClose>
               <PopoverClose className="text-start">
-                <Link href={"/"}>Pricing</Link>
+                <Link href={"/#pricing"}>Pricing</Link>
               </PopoverClose>
             </div>
           </PopoverContent>

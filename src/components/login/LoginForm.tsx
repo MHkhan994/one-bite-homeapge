@@ -17,6 +17,7 @@ import { Label } from "@/components/ui/label";
 import { Eye, EyeOff, Mail, Lock } from "lucide-react";
 import { signInAction } from "./actions/auth";
 import { useRouter } from "next/navigation";
+import { toast } from "sonner";
 
 export default function SignInForm() {
   const [showPassword, setShowPassword] = useState(false);
@@ -28,7 +29,11 @@ export default function SignInForm() {
     e.preventDefault();
     try {
       const res = await signInAction({ email, password });
-      router.push("/admin");
+      if (res?.success) {
+        router.push("/admin");
+      } else if (res.errors) {
+        toast.error(res.errors?.email || res.errors.password);
+      }
     } catch (err) {
       console.log(err);
     }

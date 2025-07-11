@@ -15,22 +15,22 @@ const users = [
   {
     name: "Liam Wilson",
     role: "Designer",
-    image: "/middleSection/avatar-1.png",
+    image: "/middleSection/avatar-1.jpg",
   },
   {
     name: "Emma Davis",
     role: "Developer",
-    image: "/middleSection/avatar-2.png",
+    image: "/middleSection/avatar-2.jpg",
   },
   {
     name: "Noah Brown",
     role: "Manager",
-    image: "/middleSection/avatar-3.png",
+    image: "/middleSection/avatar-3.jpg",
   },
   {
     name: "Noah Brown",
     role: "Manager",
-    image: "/middleSection/avatar-3.png",
+    image: "/middleSection/avatar-4.jpg",
   },
 ];
 
@@ -133,7 +133,10 @@ const MiddleSection = () => {
         />
       </svg>
 
-      <div className="my-container py-6 xl:py-16 flex xl:flex-row xl:items-center flex-col-reverse xl:gap-16 gap-4 relative z-10">
+      <div
+        id={"about-us"}
+        className="my-container py-6 xl:py-16 flex xl:flex-row xl:items-center flex-col-reverse xl:gap-16 gap-4 relative z-10"
+      >
         <div className="relative w-full max-w-[560px] mx-auto xl:mx-0">
           <div className="bg-[#078B00] sm:left-0 left-4 xl:-bottom-0 bottom-4 -rotate-[10deg] h-[160px] w-[245px] md:h-[255px] md:w-[315px] md:rounded-[60px] rounded-4xl absolute"></div>
           <div className="ps-14 mb-16 sm:block justify-center w-full">
@@ -179,13 +182,16 @@ const MiddleSection = () => {
         </div>
       </div>
 
-      <div className="my-container pb-7 xl:pb-12 grid xl:grid-cols-2 gap-6 items-center relative z-10">
+      <div
+        id={"about-product"}
+        className="my-container pb-7 xl:pb-12 grid xl:grid-cols-2 gap-6 items-center relative z-10"
+      >
         <div className="space-y-3">
           <h1 className="lg:text-[42px] md:text-4xl text-2xl hind-siliguri-bold text-dark leading-8 xl:leading-16">
             <span className="lg:text-[45px] md:text-4xl text-2xl">
               OneBite Premium
             </span>
-            , আপনার রান্নাঘরের নির্ভরতার সংগী
+            , আপনার রান্নাঘরে নির্ভরতার সংগী
           </h1>
           <ul className="list-outside text-sm hind-siliguri-semibold text-gray space-y-3">
             <li className="flex gap-2 items-center">
@@ -233,7 +239,11 @@ const MiddleSection = () => {
               <div className="flex -space-x-[5px] *:ring-3 *:ring-background">
                 {users.map((user, index) => (
                   <Avatar className="lg:size-13 size-10" key={index}>
-                    <AvatarImage src={user.image} alt={user.name} />
+                    <AvatarImage
+                      className="object-cover"
+                      src={user.image}
+                      alt={user.name}
+                    />
                     <AvatarFallback>
                       {user.name
                         .split(" ")

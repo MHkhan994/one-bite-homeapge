@@ -82,12 +82,13 @@ const Footer = () => {
                 যোগাযোগ
               </h3>
               <div className="space-y-3 text-gray-300 text-sm">
-                <p className="flex items-center gap-2">ফোন: +৮৮০ ১২৩৪৫৬৭৮৯</p>
+                <p className="flex items-center gap-2">ফোন: +8801754123456</p>
                 <p className="flex items-center gap-2">
-                  ইমেইল: info@onebite.com
+                  ইমেইল: contact@oneheartbd.com
                 </p>
                 <p className="flex items-center gap-2">
-                  ঠিকানা: হাউজ #১২৩, রোড #৪, ধানমন্ডি, ঢাকা-১২০৯, বাংলাদেশ
+                  ঠিকানা: Road 1, Metro View Housing Society,
+                  Uttara, Dhaka - 1230
                 </p>
               </div>
 

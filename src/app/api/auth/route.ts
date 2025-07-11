@@ -5,7 +5,7 @@ export async function POST(request: NextRequest) {
     const body = await request.json();
     const { email, password } = body;
 
-    if (email === "khanmahmud994@gmail.com" && password === "123456") {
+    if (email === "contact@oneheartbd.com" && password === "oneheartbd.com") {
       return Response.json(
         {
           success: true,

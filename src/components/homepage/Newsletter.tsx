@@ -35,7 +35,7 @@ const Newsletter = () => {
             <div className="bg-white rounded-xl md:p-6 p-3 shadow-xl lg:ml-8">
               <div className="text-center flex items-center gap-2">
                 <div className="text-3xl lg:text-4xl hind-siliguri-bold font-bold text-green-600">
-                  ৳১৪০০
+                  ৳১৪5০
                 </div>
                 <div className="text-gray-600 text-sm ">(৫ লিটার বোতল)</div>
               </div>

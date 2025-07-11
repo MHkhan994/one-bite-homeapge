@@ -1,7 +1,7 @@
 import React from "react";
-
 import { Contact } from "@/types/contact";
 import ContactsTable from "@/components/admin/ContactsTable";
+import LogoutButton from "@/components/shared/LogoutButton";
 
 const AdminPage = async ({
   searchParams,
@@ -37,13 +37,19 @@ const AdminPage = async ({
   // Provide default values if not present
   const page = params.page || "1";
   const limit = params.limit || "10";
-
-  const contacts: Contact[] = (await fetchOrders(page, limit))?.data || [];
+  const data = await fetchOrders(page, limit);
+  const contacts: Contact[] = data?.data || [];
+  const pagination = data?.pagination;
 
   return (
     <div className="my-container min-h-screen py-2">
-      <h2 className="text-2xl text-black py-2 font-semibold">Order Messages</h2>
-      <ContactsTable data={contacts} />
+      <div className="flex justify-between items-center">
+        <h2 className="text-2xl text-black py-2 font-semibold">
+          Order Messages
+        </h2>
+        <LogoutButton />
+      </div>
+      <ContactsTable data={contacts} pagination={pagination} />
     </div>
   );
 };

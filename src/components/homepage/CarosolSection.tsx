@@ -10,7 +10,7 @@ const products = [
   {
     id: 1,
     title: "Premium Honey",
-    image: "/slider/slider-6.png",
+    image: "/slider/slider-6.jpg",
     color: "from-amber-400 to-orange-500",
   },
   {

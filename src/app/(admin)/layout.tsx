@@ -12,7 +12,6 @@ const AdminLayout = async ({
 
   const token = cookieStore.get("one_bite_token")?.value;
 
-  console.log(token);
   if (!token) {
     redirect("/login"); // Redirects to login page
   }

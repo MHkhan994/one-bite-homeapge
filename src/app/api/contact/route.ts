@@ -3,8 +3,19 @@ import { Resend } from "resend";
 import { NextRequest } from "next/server";
 import connectDB from "@/lib/mongodb";
 import contactModel from "./contact.model";
+import nodemailer from "nodemailer";
 
-const resend = new Resend(process.env.RESEND_API_KEY);
+// const resend = new Resend(process.env.RESEND_API_KEY);
+
+const transporter = nodemailer.createTransport({
+  host: "oneheartbd.com",
+  port: 465,
+  secure: true, // Use SSL/TLS
+  auth: {
+    user: "contact@oneheartbd.com",
+    pass: process.env.SMTP_PASSWORD, // Store password in environment variable
+  },
+});
 
 export async function POST(request: NextRequest) {
   try {
@@ -33,8 +44,8 @@ export async function POST(request: NextRequest) {
     const savedContact = await contact.save();
 
     // Send email
-    await resend.emails.send({
-      from: "onboarding@resend.dev", // Use your verified domain or resend's default
+    await transporter.sendMail({
+      from: '"OneBite Premium" <contact@oneheartbd.com>', // Use your verified domain or resend's default
       // to: "greenadnan01@gmail.com",
       to: "khanmahmud994@gmail.com",
       subject: "New Contact Form Submission",

@@ -14,10 +14,21 @@ import { Button } from "@/components/ui/button";
 import { Eye, Pencil } from "lucide-react";
 import ViewContact from "./ViewContact";
 import UpdateContactModal from "./UpdateContact";
+import Pagination from "../common/Pagination";
+import { useSearchParams } from "next/navigation";
 
-const ContactsTable = ({ data }: { data: Contact[] }) => {
+const ContactsTable = ({
+  data,
+  pagination,
+}: {
+  data: Contact[];
+  pagination: any;
+}) => {
   const [viewContact, setViewContact] = useState<Contact | null>(null);
   const [editContact, setEditContact] = useState<Contact | null>(null);
+  const searchParams = useSearchParams();
+  const limit = searchParams.get("limit");
+  const page = searchParams.get("page");
   return (
     <div>
       <Table>
@@ -79,6 +90,12 @@ const ContactsTable = ({ data }: { data: Contact[] }) => {
           )}
         </TableBody>
       </Table>
+      <Pagination
+        currentPage={Number(page) || 1}
+        limit={Number(limit) || 10}
+        slug="admin"
+        totalItems={pagination?.totalCount}
+      />
       <ViewContact
         isModalOpen={viewContact !== null}
         setIsModalOpen={() => setViewContact(null)}
