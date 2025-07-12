@@ -3,6 +3,7 @@ import "./globals.css";
 import Navbar from "@/components/shared/Navbar";
 import Footer from "@/components/shared/Footer";
 import { Toaster } from "sonner";
+import Head from "next/head";
 
 const beVietnam = Be_Vietnam_Pro({
   variable: "--font-be-vietnam",
@@ -26,6 +27,9 @@ export default function RootLayout({
       <body
         className={`${beVietnam.variable} ${plusJakarta.variable} antialiased bg-background`}
       >
+        <Head>
+          <link rel="icon" href="/favicon.png" />
+        </Head>
         <Toaster richColors position="top-center" />
         <div className="max-w-[1920px] mx-auto">
           <Navbar />
