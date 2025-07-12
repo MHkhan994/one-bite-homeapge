@@ -44,7 +44,7 @@ const Footer = () => {
               <ul className="bengali-font space-y-2 text-gray-300">
                 <li>
                   <a
-                    href="#"
+                    href="/#about-us"
                     className="hover:text-green-400 transition-colors text-sm"
                   >
                     আমাদের সম্পর্কে
@@ -52,7 +52,7 @@ const Footer = () => {
                 </li>
                 <li>
                   <a
-                    href="#"
+                    href="/#about-product"
                     className="hover:text-green-400 transition-colors text-sm"
                   >
                     পণ্য সম্পর্কে
@@ -60,7 +60,7 @@ const Footer = () => {
                 </li>
                 <li>
                   <a
-                    href="#"
+                    href="/#pricing"
                     className="hover:text-green-400 transition-colors text-sm"
                   >
                     মূল্য তালিকা
@@ -68,7 +68,7 @@ const Footer = () => {
                 </li>
                 <li>
                   <a
-                    href="#"
+                    href="/order"
                     className="hover:text-green-400 transition-colors text-sm"
                   >
                     অর্ডার করুন
