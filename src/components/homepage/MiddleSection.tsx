@@ -191,7 +191,7 @@ const MiddleSection = () => {
             <span className="lg:text-[45px] md:text-4xl text-2xl">
               OneBite Premium
             </span>
-            , আপনার রান্নাঘরে নির্ভরতার সংগী
+            , আপনার রান্নাঘরে নির্ভরতার সঙ্গী
           </h1>
           <ul className="list-outside text-sm hind-siliguri-semibold text-gray space-y-3">
             <li className="flex gap-2 items-center">
@@ -253,7 +253,7 @@ const MiddleSection = () => {
                   </Avatar>
                 ))}
                 <div className="bg-[#078B00] z-20 text-xs font-semibold text-white lg:size-13 size-10 flex items-center justify-center rounded-full">
-                  10k+
+                  +
                 </div>
               </div>
             </TooltipProvider>

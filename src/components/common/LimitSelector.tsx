@@ -1,6 +1,7 @@
 "use client";
 import { useRouter } from "next/navigation";
-import React from "react";
+import React, { useEffect, useState } from "react";
+import { Button } from "../ui/button";
 
 const LimitSelector = ({
   slug,
@@ -10,6 +11,15 @@ const LimitSelector = ({
   currentLimit: number;
 }) => {
   const limits = [10, 20, 30, 50];
+  const [hydrated, setHydrated] = useState(false);
+
+  useEffect(() => {
+    setHydrated(true);
+  }, []);
+
+  if (!hydrated) {
+    return <Button></Button>;
+  }
 
   const router = useRouter();
 
